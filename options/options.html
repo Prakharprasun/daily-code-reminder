@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=600, initial-scale=1.0">
+  <title>Settings - Daily Code Reminder</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <h1>Daily Code Reminder</h1>
+      </div>
+      <p class="subtitle">Configure your daily coding practice reminders</p>
+    </header>
+
+    <main class="settings-grid">
+      <!-- Platforms -->
+      <section class="settings-card">
+        <h2 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          Platforms
+        </h2>
+        <p class="card-description">Choose which platforms to track</p>
+        
+        <div class="toggle-group">
+          <label class="toggle-item">
+            <div class="toggle-content">
+              <span class="toggle-label">LeetCode</span>
+              <span class="toggle-description">Daily problem practice</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="leetcodeEnabled" checked>
+              <span class="slider"></span>
+            </label>
+          </label>
+          
+          <label class="toggle-item">
+            <div class="toggle-content">
+              <span class="toggle-label">Codeforces</span>
+              <span class="toggle-description">Competitive programming</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="codeforcesEnabled" checked>
+              <span class="slider"></span>
+            </label>
+          </label>
+        </div>
+      </section>
+
+      <!-- Reminder Frequency -->
+      <section class="settings-card">
+        <h2 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Reminder Frequency
+        </h2>
+        <p class="card-description">How often to open tabs (until tasks are done)</p>
+        
+        <div class="select-group">
+          <select id="reminderInterval" class="select-input">
+            <option value="15">Every 15 minutes</option>
+            <option value="30" selected>Every 30 minutes</option>
+            <option value="60">Every hour</option>
+            <option value="120">Every 2 hours</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Quiet Hours -->
+      <section class="settings-card">
+        <h2 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          Quiet Hours
+        </h2>
+        <p class="card-description">Pause reminders during these hours</p>
+        
+        <div class="time-range">
+          <div class="time-input-group">
+            <label for="quietHoursStart">From</label>
+            <select id="quietHoursStart" class="select-input time-select">
+              <option value="21">9:00 PM</option>
+              <option value="22">10:00 PM</option>
+              <option value="23" selected>11:00 PM</option>
+              <option value="0">12:00 AM</option>
+            </select>
+          </div>
+          <span class="time-separator">to</span>
+          <div class="time-input-group">
+            <label for="quietHoursEnd">Until</label>
+            <select id="quietHoursEnd" class="select-input time-select">
+              <option value="6">6:00 AM</option>
+              <option value="7" selected>7:00 AM</option>
+              <option value="8">8:00 AM</option>
+              <option value="9">9:00 AM</option>
+            </select>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="save-status" id="saveStatus">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+      <span>Settings saved</span>
+    </div>
+
+    <footer class="footer">
+      <p>Daily Code Reminder v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

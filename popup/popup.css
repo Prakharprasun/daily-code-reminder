@@ -1,0 +1,422 @@
+/* ============================================================================
+   Daily Code Reminder - Popup Styles
+   Modern dark theme with glassmorphism and smooth animations
+   ============================================================================ */
+
+/* CSS Variables */
+:root {
+  /* Colors */
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-glass-hover: rgba(255, 255, 255, 0.08);
+
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-muted: #6b6b7b;
+
+  --leetcode-primary: #ffa116;
+  --leetcode-bg: rgba(255, 161, 22, 0.1);
+  --leetcode-glow: rgba(255, 161, 22, 0.3);
+
+  --codeforces-primary: #1890ff;
+  --codeforces-bg: rgba(24, 144, 255, 0.1);
+  --codeforces-glow: rgba(24, 144, 255, 0.3);
+
+  --success: #52c41a;
+  --success-bg: rgba(82, 196, 26, 0.1);
+
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  width: 360px;
+  min-height: 400px;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo-icon {
+  font-size: 24px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.logo h1 {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--leetcode-primary),
+    var(--codeforces-primary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.settings-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.settings-btn:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+  transform: rotate(45deg);
+}
+
+/* Stats Banner */
+.stats-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-glass));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--leetcode-primary),
+    var(--codeforces-primary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-color);
+}
+
+/* Tasks Section */
+.tasks-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Task Cards */
+.task-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.task-card:hover {
+  background: var(--bg-glass-hover);
+  transform: translateY(-2px);
+}
+
+.task-card.leetcode {
+  border-left: 3px solid var(--leetcode-primary);
+}
+
+.task-card.leetcode:hover {
+  box-shadow: 0 4px 20px var(--leetcode-glow);
+}
+
+.task-card.codeforces {
+  border-left: 3px solid var(--codeforces-primary);
+}
+
+.task-card.codeforces:hover {
+  box-shadow: 0 4px 20px var(--codeforces-glow);
+}
+
+.task-card.completed {
+  background: var(--success-bg);
+  border-left-color: var(--success);
+}
+
+.task-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.task-card.leetcode .task-icon {
+  background: var(--leetcode-bg);
+  color: var(--leetcode-primary);
+}
+
+.task-card.codeforces .task-icon {
+  background: var(--codeforces-bg);
+  color: var(--codeforces-primary);
+}
+
+.task-card.completed .task-icon {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.task-content {
+  flex: 1;
+}
+
+.task-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.task-status {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.task-card.completed .task-status {
+  color: var(--success);
+}
+
+/* Custom Checkbox */
+.checkbox-container {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.checkbox-container:hover .checkmark {
+  border-color: var(--text-secondary);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 9px;
+  top: 4px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+  animation: checkmark-pop 0.3s ease;
+}
+
+@keyframes checkmark-pop {
+  0% {
+    transform: rotate(45deg) scale(0);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+/* Quick Links */
+.links-section {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.quick-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.quick-link:hover {
+  transform: translateY(-2px);
+}
+
+.quick-link.leetcode:hover {
+  background: var(--leetcode-bg);
+  border-color: var(--leetcode-primary);
+  color: var(--leetcode-primary);
+  box-shadow: 0 4px 15px var(--leetcode-glow);
+}
+
+.quick-link.codeforces:hover {
+  background: var(--codeforces-bg);
+  border-color: var(--codeforces-primary);
+  color: var(--codeforces-primary);
+  box-shadow: 0 4px 15px var(--codeforces-glow);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.footer p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Loading State */
+.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-card {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.task-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
