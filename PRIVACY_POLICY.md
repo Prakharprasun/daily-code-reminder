@@ -23,7 +23,6 @@ This extension collects **NO personal data**. All information is stored locally:
 |------------|---------|
 | `alarms` | Schedule reminders |
 | `storage` | Save settings locally |
-| `tabs` | Open LeetCode/Codeforces when reminders trigger |
 
 ## Data Deletion
 

@@ -4,7 +4,7 @@
   "short_name": "CodeReminder",
   "version": "1.0.0",
   "description": "Persistent daily reminders for LeetCode and Codeforces practice. Never miss a day of coding!",
-  "permissions": ["alarms", "tabs", "storage"],
+  "permissions": ["alarms", "storage"],
   "background": {
     "service_worker": "background.js"
   },
