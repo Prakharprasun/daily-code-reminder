@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Daily Code Reminder",
   "short_name": "CodeReminder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Persistent daily reminders for LeetCode and Codeforces practice. Never miss a day of coding!",
   "permissions": ["alarms", "storage"],
   "background": {

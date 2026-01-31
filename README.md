@@ -1,29 +1,35 @@
-# Daily Code Reminder ⚡
+# Daily Code Reminder
 
-A Chrome extension that **forces you** to practice LeetCode and Codeforces daily by opening the sites until you mark tasks as done.
+Stay consistent with your coding practice.
+
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Install-blue)](https://chromewebstore.google.com/detail/daily-code-reminder/cgjjgkajhpfmngkdkgbjdoepcojninie)
+
+Daily Code Reminder helps you build a lasting habit by ensuring you never skip your daily Competitive Programming sessions.
+
+This accountability extension sends persistent reminders until you complete your daily coding tasks. If you struggle with streaks or forget to practice, Daily Code Reminder keeps you on track with configurable notifications and automatic site opening.
 
 ## Features
 
-- **Aggressive Reminders** - Opens LeetCode/Codeforces tabs every 30 minutes until done
+- **Persistent Reminders** - Opens LeetCode/Codeforces tabs until you mark tasks done
+- **Configurable Frequency** - Adjust reminder intervals (15min - 2hrs)
+- **Quiet Hours** - Pause reminders during sleep
 - **Streak Tracking** - Track your coding streaks
-- **Quiet Hours** - No reminders during sleep (11 PM - 7 AM)
 - **One-Click Complete** - Mark tasks done in the popup
-- **Dark Theme UI** - Modern, beautiful interface
+- **Platform Preferences** - Enable/disable LeetCode, Codeforces, or both
 
 ## Installation
+
+**From Chrome Web Store:**
+
+[Install Daily Code Reminder](https://chromewebstore.google.com/detail/daily-code-reminder/cgjjgkajhpfmngkdkgbjdoepcojninie)
+
+**Manual Installation:**
 
 1. Download/clone this repository
 2. Go to `chrome://extensions/`
 3. Enable **Developer mode**
-4. Click **Load unpacked** → select `LeetCode_Reminder` folder
+4. Click **Load unpacked** → select the folder
 5. Pin the extension to your toolbar
-
-## How It Works
-
-1. Every 30 minutes (configurable), if tasks aren't done, **tabs open automatically**
-2. Click the extension icon to mark tasks complete
-3. Once marked done, no more reminders for the day
-4. Tasks reset at midnight
 
 ## Settings
 
@@ -32,20 +38,18 @@ Right-click extension → Options:
 - Reminder frequency (15min - 2hrs)
 - Quiet hours
 
-## Files
-
-```
-LeetCode_Reminder/
-├── manifest.json       # Extension config
-├── background.js       # Alarm & tab opening logic
-├── popup/              # Popup UI
-├── options/            # Settings page
-└── icons/              # Extension icons
-```
+> **Tip:** I recommend adjusting the reminder frequency in settings, it can get pretty nagging (that's the point).
 
 ## Privacy
 
-All data stored locally. No external servers. See [PRIVACY_POLICY.md](PRIVACY_POLICY.md).
+All data stored locally. No tracking, no servers, no sharing.
+
+- [Privacy Policy](https://github.com/Prakharprasun/daily-code-reminder/blob/main/PRIVACY_POLICY.md)
+- [Open Source](https://github.com/Prakharprasun/daily-code-reminder)
+
+## Disclaimer
+
+This extension is not affiliated with or endorsed by LeetCode or Codeforces.
 
 ## License
 

@@ -36,7 +36,8 @@ const DEFAULT_SETTINGS = Object.freeze({
 const DEFAULT_TASKS = Object.freeze({
   leetcode: false,
   codeforces: false,
-  lastReset: null
+  lastReset: null,
+  lastReminderTime: null
 });
 
 const DEFAULT_STATS = Object.freeze({
@@ -164,7 +165,7 @@ async function checkAndResetTasks() {
       await chrome.storage.local.set({ stats: updatedStats });
     }
 
-    await chrome.storage.local.set({ tasks: { leetcode: false, codeforces: false, lastReset: today } });
+    await chrome.storage.local.set({ tasks: { leetcode: false, codeforces: false, lastReset: today, lastReminderTime: null } });
   }
 }
 
@@ -197,12 +198,37 @@ async function checkAndOpenTabs() {
     return;
   }
 
-  if (effectiveSettings.leetcodeEnabled !== false && tasks?.leetcode !== true) {
+  // Check if enough time has passed since last reminder
+  const now = Date.now();
+  const lastReminderTime = tasks?.lastReminderTime || 0;
+  const intervalMs = (effectiveSettings.reminderInterval || 30) * 60 * 1000;
+  
+  if (now - lastReminderTime < intervalMs) {
+    console.log('Too soon since last reminder - skipping. Next reminder in', 
+      Math.round((intervalMs - (now - lastReminderTime)) / 60000), 'minutes');
+    return;
+  }
+
+  // Check if any tabs need to be opened
+  const needsLeetcode = effectiveSettings.leetcodeEnabled !== false && tasks?.leetcode !== true;
+  const needsCodeforces = effectiveSettings.codeforcesEnabled !== false && tasks?.codeforces !== true;
+  
+  if (!needsLeetcode && !needsCodeforces) {
+    console.log('All tasks complete - no reminders needed');
+    return;
+  }
+
+  // Update last reminder time
+  await chrome.storage.local.set({ 
+    tasks: { ...tasks, lastReminderTime: now } 
+  });
+
+  if (needsLeetcode) {
     console.log('Opening LeetCode');
     chrome.tabs.create({ url: ALLOWED_URLS.leetcode, active: true });
   }
 
-  if (effectiveSettings.codeforcesEnabled !== false && tasks?.codeforces !== true) {
+  if (needsCodeforces) {
     console.log('Opening Codeforces');
     chrome.tabs.create({ url: ALLOWED_URLS.codeforces, active: true });
   }

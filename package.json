@@ -1,6 +1,6 @@
 {
   "name": "daily-code-reminder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Chrome extension for daily LeetCode and Codeforces reminders",
   "private": true,
   "scripts": {
